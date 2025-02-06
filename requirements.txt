@@ -1,0 +1,6 @@
+python>=3.10
+numba
+numpy
+joblib
+pandas
+openai
