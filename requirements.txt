@@ -4,3 +4,8 @@ numpy
 joblib
 pandas
 openai
+pickle
+datetime
+logging
+ast
+sklearn.metrics
