@@ -29,19 +29,20 @@ We take the Geolife dataset for example.
 - trajectory prediction:  
 
   ```bash
-  python Spatial-temporal Perception Module.py
+  python "Spatial-temporal Perception Module.py"
+  ```
 - Allocate service chains for each user:
 
   ```bash
-  python Service chains allocation.py
+  python "Service chains allocation.py"
 - Simulate edge servers based on the predicted location information:
 
   ```bash
-  python Simulated BaseStation.py
+  python "Simulated BaseStation.py"
 - Integrate user requests data, edge servers data, and microservice resource consumption data to generate pre-deployment data:
 
    ```bash
-  python Data merging.py
+  python "Data merging.py"
 - Generate pre-deployment strategies:
 
    ```bash
