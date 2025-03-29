@@ -272,10 +272,22 @@ def single_query_num_10(client, No_recent_Trajectory_Points_Data, X):
     X: one single sample containing Recent Trajectory and Target stay
     """
     prompt = f"""
-            You need to predict the user's next location based on their activity patterns.The first input is a list named <No-recent Trajectory Points>, which records the aggregated locations the user has visited over a continuous period in the past. The second input is <Recent Trajectory Points>, which provides the aggregated locations the user has visited over a recent continuous period.Based on the following information, infer the <Next Future Trajectory Point FT>, which is the location the user is most likely to arrivate next.First, analyze the user's activity patterns presented in the <No-recent Trajectory Points> data. Observe whether the user has a recurring behavior of visiting a specific location at a particular time.Second, refer to the activity patterns in the <Recent Trajectory Points> data, which reflect the user's recent interest in certain trajectories and provide more immediate information for your inference.Finally, pay attention to the duration in each trajectory point, as it indicates the user's activity level at certain locations.After completing the inference, organize the answer into a JSON-formatted object. The object should contain a key "prediction": the corresponding value is the location PD you inferred.
+            You need to predict the user's next location based on their activity patterns. The first input is a list named <Non-recent Trajectory Points>, 
+            which records the aggregated locations the user has visited over a continuous period in the past. The second input is <Recent Trajectory Points>, 
+            which provides the aggregated locations the user has visited over a recent continuous period. Based on the following information, 
+            infer the <Next Future Trajectory Point FL>, which is the location where the user is most likely to arrive next.
+            First, analyze the user's activity patterns presented in the <Non-recent Trajectory Points> data. 
+            Observe whether the user has a recurring behavior of visiting a specific location at a particular time. 
+            Second, refer to the activity patterns in the <Recent Trajectory Points> data, 
+            which reflect the user's recent interest in certain trajectories and provide more immediate information for your inference. 
+            Finally, pay attention to the duration in each trajectory point, as it indicates the user's activity level at certain locations. 
+            After completing the inference, organize the answer into a JSON-formatted object. 
+            The object should contain two keys <prediction>: the corresponding value is the location PD you inferred, 
+            <Reason>: the reasons for your prediction.
+
             Relevant data is as follows:
-            <No-recent Trajectory Points>: {No_recent_Trajectory_Points_Data}
-            <Recent Trajectory Points>: {X['Recent_Trajectory_Points_Data']}
+            <Non-recent Trajectory Points>: {Non-recent Trajectory Points Data}
+            <Recent Trajectory Points>: {X ["Recent Trajectory Points Data"]}
             Note: The user's location records follow a specific format: (ST, DT, LT, PD). The explanation for each component is as follows:
             ST: Start Time, using a 12-hour format, clearly records the time the user started traveling to this location.
             DT: Day of the Week, clearly indicates the specific day of the week when the user traveled to this location.
